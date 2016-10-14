@@ -8,7 +8,7 @@ class Customer
   def initialize(options)
     @id = options['id'].to_i
     @name = options['name']
-    @funds = funds['funds'].to_i
+    @funds = options['funds'].to_i
   end
 
 
