@@ -22,6 +22,12 @@ class Customer
     return Customer.map_items(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM customers WHERE id = #{id} ;"
+    customer = SqlRunner.run(sql)
+    return Customer.new(customer.first())
+  end
+
   def self.delete_all()
     sql = "DELETE FROM customers ;"
     SqlRunner.run(sql)
