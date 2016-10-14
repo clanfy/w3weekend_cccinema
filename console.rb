@@ -17,4 +17,16 @@ customer4.save()
 customer5 = Customer.new({'name' => 'Dennis', 'funds' => 40})
 customer5.save()
 
+film1 = Film.new({'title' => 'Bridget Jones''s Baby', 'price' => 12})
+film2 = Film.new({'title' => 'Finding Dory', 'price' => 7})
+film3 = Film.new({'title' => 'Bad Moms', 'price' => 12})
+film4 = Film.new({'title' => 'The BFG', 'price' => 7})
+film5 = Film.new({'title' => 'Sausage Party', 'price' => 12})
+film5 = Film.new({'title' => 'Kubo', 'price' => 7})
+
+
+
+
+
+
 
