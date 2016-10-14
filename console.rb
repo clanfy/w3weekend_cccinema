@@ -3,8 +3,8 @@ require_relative('models/film')
 require_relative('models/ticket')
 
 # Ticket.delete_all()
-# Film.delete_all()
-# Customer.delete_all()
+Film.delete_all()
+Customer.delete_all()
 
 customer1 = Customer.new({'name' => 'Cookie', 'funds' => 50})
 customer1.save()
@@ -29,6 +29,8 @@ film5 = Film.new({'title' => 'Sausage Party', 'price' => 12})
 film5.save()
 film6 = Film.new({'title' => 'Kubo', 'price' => 7})
 film6.save()
+
+
 
 
 
