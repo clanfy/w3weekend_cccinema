@@ -3,7 +3,8 @@ require_relative('../db/sql_runner')
 
 class Customer
 
-  attr_reader :id, :name, :funds
+  attr_reader :id
+  attr_accessor :name, :funds
 
   def initialize(options)
     @id = options['id'].to_i
@@ -42,6 +43,14 @@ class Customer
   def self.map_item(sql)
     customer = Customer.map_items(sql)
     return customer.first
+  end
+
+  def update
+    sql = "UPDATE customers SET 
+    name = '#{@name}',
+    funds = #{funds}
+    WHERE id = #{id} ;"
+    SqlRunner.run(sql)
   end
 
 
