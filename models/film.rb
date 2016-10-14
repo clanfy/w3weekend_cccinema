@@ -23,7 +23,7 @@ class Film
   end
 
   def self.find(id)
-    sql = "SELECT * FROM films where id = #{id} ;"
+    sql = "SELECT * FROM films WHERE id = #{id} ;"
     film = SqlRunner.run(sql)
     return Film.new(film.first())
   end

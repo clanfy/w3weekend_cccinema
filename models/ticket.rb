@@ -21,6 +21,12 @@ class Ticket
     return Ticket.map_items(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM tickets WHERE id = #{id} ;"
+    ticket = SqlRunner.run(sql)
+    return Ticket.new(ticket.first())
+  end
+
   def self.delete_all()
     sql = "DELETE FROM tickets"
     SqlRunner.run(sql)
