@@ -48,7 +48,7 @@ class Customer
   def update
     sql = "UPDATE customers SET 
     name = '#{@name}',
-    funds = #{funds}
+    funds = #{@funds}
     WHERE id = #{id} ;"
     SqlRunner.run(sql)
   end

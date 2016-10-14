@@ -45,4 +45,17 @@ class Film
     return film.first
   end
 
+  def update
+    sql = "UPDATE films SET
+    title = '#{title}',
+    price = '#{@price}'
+    WHERE id = #{id} ; "
+    SqlRunner.run(sql)
+  end
+
+
+
+
+
+
 end
