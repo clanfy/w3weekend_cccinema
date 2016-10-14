@@ -22,6 +22,12 @@ class Film
     return Film.map_items(sql)
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM films where id = #{id} ;"
+    film = SqlRunner.run(sql)
+    return Film.new(film.first())
+  end
+
   def self.delete_all()
     sql = "DELETE FROM films"
     SqlRunner.run(sql)
