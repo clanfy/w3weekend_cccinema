@@ -1,6 +1,7 @@
 require_relative('models/customer')
 require_relative('models/film')
 require_relative('models/ticket')
+require('pry-byebug')
 
 Ticket.delete_all()
 Film.delete_all()
@@ -52,7 +53,8 @@ ticket10 = Ticket.new({'customer_id' => customer2.id, 'film_id' => film4.id})
 ticket10.save()
 
 
-
+binding.pry
+nil
 
 
 
