@@ -19,7 +19,7 @@ class Customer
 
   def tickets
     sql = "SELECT * FROM films INNER JOIN tickets ON tickets.film_id = films.id WHERE tickets.customer_id = #{@id};"
-    return Tickets.map_items(sql)
+    return Ticket.map_items(sql)
   end
 
   def films
