@@ -2,7 +2,7 @@ require_relative("../db/sql_runner")
 
 class Ticket
 
-  attr_reader :id, :customer_id, :film_id
+  attr_accessor :id, :customer_id, :film_id
 
   def initialize(options)
     @id = options['id'].to_i
@@ -42,6 +42,15 @@ class Ticket
     ticket = Ticket.map_items(sql)
     return ticket.first
   end
+
+  def update
+    sql = "UPDATE tickets SET
+    customer_id = #{customer_id}, 
+    film_id = #{film_id}
+    WHERE id = #{id} ;"
+    SqlRunner.run(sql)
+  end
+
 
 
 
