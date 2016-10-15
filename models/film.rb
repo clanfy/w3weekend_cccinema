@@ -17,6 +17,17 @@ class Film
     @id = film['id'].to_i
   end
 
+  def tickets
+    sql = "SELECT * FROM films INNER JOIN tickets ON tickets.film_id = films.id WHERE tickets.film_id = #{@id}; "
+    return Ticket.map_items(sql)
+  end
+
+#not really necessary?
+  def films
+      sql = "SELECT * FROM films INNER JOIN tickets ON tickets.film_id = films.id WHERE tickets.film_id = #{@id}; "
+      return Film.map_items(sql)
+  end
+
   def self.all()
     sql = "SELECT * FROM films ;"
     return Film.map_items(sql)
