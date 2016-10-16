@@ -22,10 +22,9 @@ class Film
     return Ticket.map_items(sql)
   end
 
-#not really necessary?
-  def films
-      sql = "SELECT * FROM films INNER JOIN tickets ON tickets.film_id = films.id WHERE tickets.film_id = #{@id}; "
-      return Film.map_items(sql)
+  def count_tickets
+    sql = "SELECT * FROM films INNER JOIN tickets ON tickets.film_id = films.id WHERE tickets.film_id = #{@id}; "
+    return Ticket.map_items(sql).count
   end
 
   def self.all()
