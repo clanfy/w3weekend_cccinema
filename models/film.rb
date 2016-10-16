@@ -27,6 +27,26 @@ class Film
     return Ticket.map_items(sql).count
   end
 
+  def popular_time
+    sql = 
+    "SELECT * 
+     FROM films INNER JOIN tickets ON tickets.film_id = films.id WHERE tickets.film_id = #{@id} 
+     GROUP BY start_time 
+     ORDER BY COUNT(*) DESC LIMIT 1; "
+    return SqlRunner.run(sql)
+  end
+
+  # def popular_time
+  #   sql = 
+  #   "SELECT start_time 
+  #    FROM tickets 
+  #    GROUP BY start_time 
+  #    ORDER BY COUNT(*) DESC LIMIT 1 FROM 
+  #    films INNER JOIN tickets ON tickets.film_id = films_id WHERE tickets.film_id = #{@id}; "
+  #   return Ticket.map_items(sql)
+  # end
+
+
   def customers
     sql = "SELECT * FROM customers INNER JOIN tickets ON tickets.customer_id = customers.id WHERE tickets.film_id = #{@id}; "
     return Customer.map_items(sql)
